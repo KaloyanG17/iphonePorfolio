@@ -75,17 +75,17 @@ export function LockScreen({ onUnlock }: { onUnlock: () => void }) {
         <div>
           <strong>{profile.short}</strong>
           <small>now</small>
-          <p>Hey! I build web apps. Slide to unlock and have a look around.</p>
+          <p>Hey! I build web apps. Slide the bar below to come in and look around.</p>
         </div>
       </div>
       <div className="lock-bottom">
         <div className="slider" ref={track}>
-          <span className="slide-text" style={{ opacity: 1 - x / 120 }}>slide to unlock</span>
+          <span className="slide-text" style={{ opacity: 1 - x / 120 }}>slide to open</span>
           <button
             type="button"
             className={`knob ${dragging ? '' : 'settle'}`}
             style={{ transform: `translateX(${x}px)` }}
-            aria-label="Slide to unlock (or press Enter)"
+            aria-label="Slide to open (or press Enter)"
             onPointerDown={down}
             onPointerMove={move}
             onPointerUp={up}

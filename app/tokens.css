@@ -1,0 +1,240 @@
+/* Hallmark · checked: 2026-11-06 · genre: playful (inferred: a portfolio built as a game)
+ * floor: 0 FAIL (from 461) · reflex: 0 open, 3 waived (2b, 38ii, 64) · fixed: 2a 7a 10a 19 34 40 44d 48 54 55a 62 63 67 30a 12 26b 29 F3 · finish-review: subagent · 5 findings · 4 resolved 1 partial
+ * built: the project · redesign: polish · v2.0.0 */
+/* Hallmark · waive 2b · a neutral grey ramp sweeping across "slide to open" · the iOS 4 lock-screen shimmer is the period detail the phone rests on */
+/* Hallmark · waive 38ii · italic condensed display on the name and race heads · the race livery voice from the Grand Prix concept, set once per screen */
+/* Hallmark · waive 64 · timing-screen mono on lap, time, sector and garage labels · the race HUD is a timing screen, so its mono is the material */
+/* Hallmark · dismissed 3 · the coloured edge on the lap, time, speed and radio boxes is the timing-tower livery, one edge per box, not a card stripe */
+/* Hallmark · dismissed 18 · the marquee is aria-hidden backdrop type behind the phone with pointer-events off, and it stops under reduced motion */
+/* Hallmark · dismissed 40 · the render tier measured every text pair at 375, 1280, 1440 and 1920 with no failure; the drop is to a gradient stop that never sits behind the text */
+/* Hallmark · dismissed 49 · the long labels wrap on purpose inside the 320px phone screen and the race HUD, where nowrap would overflow the glass */
+/* Hallmark · answered F7 · the pill sits on links and buttons (social links, pit wall, power hint) plus the race hint, which reads as a control legend */
+/* Hallmark · answered F20 · the pit wall lists all seven projects in order; the seventh is the old portfolio, and it sits alone on purpose as the archive */
+
+/* Every colour and font on the site goes through these tokens. */
+
+@property --accent { syntax: '<color>'; inherits: true; initial-value: #141720; }
+
+:root {
+  /* faces: the race display (Barlow Condensed) and timing numerals (JetBrains Mono) come from next/font */
+  --font-display: 'Barlow Condensed', var(--font-race), system-ui, sans-serif;
+  --font-numeric: 'JetBrains Mono', var(--font-mono), ui-monospace, monospace;
+  --font-outlier: var(--font-numeric); /* the timing-screen mono: lap times, speed and HUD labels */
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-ios: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* palette, named by hue and lightness (and alpha) */
+  --c-signal-red: #e3141d;
+  --c-hud-surface: #1a1c24;
+  --c-hud-surface-hover: #262935;
+  --c-signal-red-deep: #b30f17; /* red under white text, 5.6:1 */
+  --c-wall-glow: #2e66a6;
+  --c-wall-top: #122440;
+  --c-wall-base: #08101c;
+  --c-chalk: #fcfcfd;
+  --c-lang-other: #8b949e;
+  --c-black-a25: rgba(0,0,0,0.25);
+  --c-black-a30: rgba(0,0,0,0.3);
+  --c-black-a35: rgba(0,0,0,0.35);
+  --c-black-a40: rgba(0,0,0,0.4);
+  --c-black-a45: rgba(0,0,0,0.45);
+  --c-black-a50: rgba(0,0,0,0.5);
+  --c-black-a55: rgba(0,0,0,0.55);
+  --c-black-a60: rgba(0,0,0,0.6);
+  --c-black-a62: rgba(0,0,0,0.62);
+  --c-black-a90: rgba(0,0,0,0.9);
+  --c-blue-3: #07070a;
+  --c-blue-4: #08090c;
+  --c-blue-4-2: #07080f;
+  --c-blue-4-3: #07080b;
+  --c-blue-5: #0b0c10;
+  --c-blue-5-a45: rgba(10,10,14,0.45);
+  --c-blue-5-a60: rgba(10,10,14,0.6);
+  --c-blue-5-a62: rgba(10,10,14,0.62);
+  --c-blue-5-a78: rgba(10,10,14,0.78);
+  --c-blue-5-a86: rgba(10,10,14,0.86);
+  --c-blue-6: #0d0e13;
+  --c-blue-6-a88: rgba(14,14,18,0.88);
+  --c-blue-7-a75: rgba(14,16,22,0.75);
+  --c-blue-8: #101218;
+  --c-blue-8-2: #101217;
+  --c-blue-8-3: #111317;
+  --c-blue-9: #0d1220;
+  --c-blue-13: #1a1e27;
+  --c-blue-14: #141b33;
+  --c-blue-14-2: #1f2328;
+  --c-blue-16: #1d2533;
+  --c-blue-17: #232836;
+  --c-blue-19: #2a2e37;
+  --c-blue-22: #2d3642;
+  --c-blue-25: #323a4c;
+  --c-blue-27: #3a4150;
+  --c-blue-28: #3b4456;
+  --c-blue-28-2: #33415c;
+  --c-blue-31: #454b58;
+  --c-blue-32: #3a4a6a;
+  --c-blue-32-2: #08529c;
+  --c-blue-35: #2c4f86;
+  --c-blue-36: #4c566c;
+  --c-blue-36-2: #324f85;
+  --c-blue-36-3: #4f5b69;
+  --c-blue-37: #385487;
+  --c-blue-38: #3f5b85;
+  --c-blue-40: #0a66c2;
+  --c-blue-41: #45628d;
+  --c-blue-44: #4b6a96;
+  --c-blue-44-2: #3363ad;
+  --c-blue-45: #3b5fa8;
+  --c-blue-45-2: #015fe6;
+  --c-blue-45-3: #0969da;
+  --c-blue-46: #3a6ab3;
+  --c-blue-47-a85: rgba(31,95,209,0.85);
+  --c-blue-49: #058cf5;
+  --c-blue-52: #4a77bd;
+  --c-blue-53: #6d84a2;
+  --c-blue-56: #3d8be0;
+  --c-blue-57-a50: rgba(70,130,220,0.5);
+  --c-blue-60: #8195af;
+  --c-blue-60-2: #5b8fd6;
+  --c-blue-61: #8e9aab;
+  --c-blue-61-2: #8f99aa;
+  --c-blue-62: #889bb3;
+  --c-blue-62-2: #8e9cad;
+  --c-blue-64: #8aa0be;
+  --c-blue-65: #9aa3b2;
+  --c-blue-65-2: #9aa3b3;
+  --c-blue-66: #7aa0d6;
+  --c-blue-69: #86a8da;
+  --c-blue-74: #7cb2ff;
+  --c-blue-74-a50: rgba(130,180,245,0.5);
+  --c-blue-75: #b5bcc7;
+  --c-blue-75-2: #b0bccd;
+  --c-blue-78: #bcc5d0;
+  --c-blue-79: #a9c4ea;
+  --c-blue-80: #c4c9d2;
+  --c-blue-80-2: #c5ccd4;
+  --c-blue-82: #cbd2d8;
+  --c-blue-82-2: #c9cfd9;
+  --c-blue-82-3: #c9ced8;
+  --c-blue-84: #d0d7de;
+  --c-blue-87: #d8dee4;
+  --c-blue-89: #dbe2ed;
+  --c-blue-90: #e1e4e8;
+  --c-blue-92: #e8eaef;
+  --c-blue-92-2: #e3e8f0;
+  --c-blue-92-3: #e5e8ee;
+  --c-blue-94: #dfe9ff;
+  --c-blue-96: #f3f4f6;
+  --c-blue-96-2: #f2f4f8;
+  --c-blue-97: #f6f8fa;
+  --c-blue-99: #fcfcfd;
+  --c-green-21: #0b5e1a;
+  --c-green-37: #27a51a;
+  --c-green-56: #8fd14b;
+  --c-green-56-2: #4af626;
+  --c-green-56-3: #3ee05a;
+  --c-green-56-a35: rgba(62,224,90,0.35);
+  --c-green-56-a60: rgba(62,224,90,0.6);
+  --c-green-68: #8ff36a;
+  --c-green-81: #d3f5a6;
+  --c-grey-3: #070708;
+  --c-grey-4: #0a0a0b;
+  --c-grey-4-2: #0b0b0b;
+  --c-grey-5: #0b0b0c;
+  --c-grey-7: #111;
+  --c-grey-8: #141416;
+  --c-grey-8-a97: rgba(18,18,22,0.97);
+  --c-grey-10: #1a1a1a;
+  --c-grey-11-a92: rgba(24,25,30,0.92);
+  --c-grey-12: #1d1e21;
+  --c-grey-13: #222;
+  --c-grey-14: #222326;
+  --c-grey-16: #26272a;
+  --c-grey-17: #2b2b2b;
+  --c-grey-18: #2c2d31;
+  --c-grey-20: #333;
+  --c-grey-25-a82: rgba(60,60,66,0.82);
+  --c-grey-29-a97: rgba(70,70,76,0.97);
+  --c-grey-33: #555;
+  --c-grey-33-a88: rgba(78,80,90,0.88);
+  --c-grey-35: #5a5a5a;
+  --c-grey-35-2: #5e5a54;
+  --c-grey-39: #59636e;
+  --c-grey-40: #666;
+  --c-grey-45: #6c7078;
+  --c-grey-47: #777;
+  --c-grey-48: #7a7a7a;
+  --c-grey-54: #7d8594;
+  --c-grey-55: #8a8b90;
+  --c-grey-57: #8e8e93;
+  --c-grey-59: #8a92a1;
+  --c-grey-64: #9aa1ad;
+  --c-grey-67: #a9abae;
+  --c-grey-68: #a9adb4;
+  --c-grey-77: #c4c4c4;
+  --c-grey-84: #d6d6d6;
+  --c-grey-85: #d9d9d9;
+  --c-grey-87: #e0dfdc;
+  --c-grey-88: #e0e0e0;
+  --c-grey-89: #e3e3e3;
+  --c-grey-89-2: #e2e2e2;
+  --c-grey-90: #e6e6e6;
+  --c-grey-92: #ebebeb;
+  --c-grey-93: #ececee;
+  --c-grey-96: #f4f4f4;
+  --c-orange-25: #7d4e00;
+  --c-orange-89: #e9e5df;
+  --c-red-11: #2a0c0e;
+  --c-red-33: #a0080c;
+  --c-red-36: #b3060f;
+  --c-red-43: #c0281b;
+  --c-red-47-a90: rgba(220,20,60,0.9);
+  --c-red-48: #e3141d;
+  --c-red-48-a35: rgba(227,20,29,0.35);
+  --c-red-55: #ff1a1a;
+  --c-red-56: #ff2020;
+  --c-red-60: #ff5f33;
+  --c-red-64: #ff4b45;
+  --c-red-68: #f07a6a;
+  --c-red-77: #ff8a8a;
+  --c-violet-41: #6a3b98;
+  --c-violet-51-a90: rgba(150,40,220,0.9);
+  --c-white: #fdfdfd;
+  --c-white-a4: rgba(255,255,255,0.035);
+  --c-white-a5: rgba(255,255,255,0.05);
+  --c-white-a7: rgba(255,255,255,0.07);
+  --c-white-a8: rgba(255,255,255,0.08);
+  --c-white-a9: rgba(255,255,255,0.09);
+  --c-white-a10: rgba(255,255,255,0.1);
+  --c-white-a12: rgba(255,255,255,0.12);
+  --c-white-a14: rgba(255,255,255,0.14);
+  --c-white-a15: rgba(255,255,255,0.15);
+  --c-white-a16: rgba(255,255,255,0.16);
+  --c-white-a18: rgba(255,255,255,0.18);
+  --c-white-a20: rgba(255,255,255,0.2);
+  --c-white-a22: rgba(255,255,255,0.22);
+  --c-white-a25: rgba(255,255,255,0.25);
+  --c-white-a30: rgba(255,255,255,0.3);
+  --c-white-a32: rgba(255,255,255,0.32);
+  --c-white-a35: rgba(255,255,255,0.35);
+  --c-white-a40: rgba(255,255,255,0.4);
+  --c-white-a45: rgba(255,255,255,0.45);
+  --c-white-a50: rgba(255,255,255,0.5);
+  --c-white-a55: rgba(255,255,255,0.55);
+  --c-white-a60: rgba(255,255,255,0.6);
+  --c-white-a65: rgba(255,255,255,0.65);
+  --c-white-a70: rgba(255,255,255,0.7);
+  --c-white-a72: rgba(255,255,255,0.72);
+  --c-white-a75: rgba(255,255,255,0.75);
+  --c-white-a80: rgba(255,255,255,0.8);
+  --c-white-a85: rgba(255,255,255,0.85);
+  --c-yellow-43: #d9a400;
+  --c-yellow-56: #ffd21f;
+  --c-yellow-56-a10: rgba(255,210,31,0.1);
+  --c-yellow-56-a20: rgba(255,210,31,0.2);
+  --c-yellow-56-a45: rgba(255,210,31,0.45);
+  --c-yellow-56-a60: rgba(255,210,31,0.6);
+  --c-yellow-75: #ffe680;
+  --c-yellow-89: #fff8c5;
+  --c-yellow-95: #f3f2ef;
+}

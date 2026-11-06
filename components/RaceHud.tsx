@@ -149,8 +149,8 @@ export default function RaceHud({ onExit, onWeb, onContact }: Props) {
       <div className="rh-touch right" onPointerDown={press(-1)} onPointerUp={release} onPointerCancel={release} />
 
       <div className="rh-pads left">
-        <button type="button" aria-label="Steer left" {...pedal({ touchSteer: 1 }, { touchSteer: 0 })}>◀</button>
-        <button type="button" aria-label="Steer right" {...pedal({ touchSteer: -1 }, { touchSteer: 0 })}>▶</button>
+        <button type="button" aria-label="Steer left" {...pedal({ touchSteer: 1 }, { touchSteer: 0 })}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M16 4 6 12l10 8z" fill="currentColor" /></svg></button>
+        <button type="button" aria-label="Steer right" {...pedal({ touchSteer: -1 }, { touchSteer: 0 })}><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 4l10 8-10 8z" fill="currentColor" /></svg></button>
       </div>
       <div className="rh-pads right">
         <button type="button" aria-label="Brake" {...pedal({ touchBrake: true }, { touchBrake: false })}>Brake</button>
@@ -166,7 +166,7 @@ export default function RaceHud({ onExit, onWeb, onContact }: Props) {
 
       {phase === 'title' && (
         <div className="rh-title">
-          <small>Race control · 1 lap · 4 sectors · 6 garages</small>
+          <small>One lap, four sectors, six garages</small>
           <h2><span>{profile.name}</span>Grand Prix</h2>
           <p>Drive one lap of my career against an AI rival, then pull into the pit lane to try my projects.</p>
           <div className="rh-title-actions">
@@ -188,7 +188,7 @@ export default function RaceHud({ onExit, onWeb, onContact }: Props) {
         <div className="rh-flag">
           <small>Chequered flag</small>
           <b>{fmt(race.result.time)}</b>
-          <span>{race.result.pos === 1 ? 'P1 · you beat the rival' : 'P2 · the rival got you'}{race.result.best ? ' · new best lap' : ''}</span>
+          <span>{race.result.pos === 1 ? 'P1, you beat the rival.' : 'P2, the rival got you.'}{race.result.best ? ' New best lap.' : ''}</span>
         </div>
       )}
 
@@ -197,7 +197,7 @@ export default function RaceHud({ onExit, onWeb, onContact }: Props) {
           <div className="rh-podium-head">
             <span className={`rh-p p${race.result.pos}`}>P{race.result.pos}</span>
             <div>
-              <small>Lap {fmt(race.result.time)} · Best {fmt(race.best)}</small>
+              <small>Lap {fmt(race.result.time)}, best {fmt(race.best)}</small>
               <b>Hire the driver</b>
             </div>
           </div>
@@ -214,12 +214,12 @@ export default function RaceHud({ onExit, onWeb, onContact }: Props) {
         </div>
       )}
       <div className="rh-warn" ref={warn}>Track limits</div>
-      {auto && phase !== 'title' && <div className="rh-auto">Autopilot · press any driving key to take over</div>}
+      {auto && phase !== 'title' && <div className="rh-auto">Autopilot: press any driving key to take over</div>}
       <div className="rh-flash" ref={flash} aria-live="polite" />
 
       {c && (
         <div className="rh-radio" key={radio!.id} role="status">
-          <small><i />Radio · Sector {radio!.k + 1} · {c.when}</small>
+          <small><i />Sector {radio!.k + 1}, {c.when}</small>
           <b>{c.title}</b>
           <span>{c.org}. {c.text}</span>
         </div>
@@ -227,7 +227,7 @@ export default function RaceHud({ onExit, onWeb, onContact }: Props) {
 
       {p && (
         <div className="rh-card" key={p.slug} style={{ ['--c1' as string]: p.colors[0], ['--c2' as string]: p.colors[1] }}>
-          <small>Garage {garage + 1} · Pit lane</small>
+          <small>Pit lane, garage {garage + 1}</small>
           <b>{p.name}</b>
           <span>{p.tagline}</span>
           <div className="rh-stack">{p.stack.slice(0, 4).map((s) => <i key={s}>{s}</i>)}</div>
@@ -239,7 +239,7 @@ export default function RaceHud({ onExit, onWeb, onContact }: Props) {
         </div>
       )}
 
-      {hint && phase !== 'title' && <div className="rh-hint">↑ throttle · ← → steer · ↓ brake · stop at a garage · Esc exits</div>}
+      {hint && phase !== 'title' && <div className="rh-hint"><span><kbd>↑</kbd> throttle</span><span><kbd>←</kbd><kbd>→</kbd> steer</span><span><kbd>↓</kbd> brake</span><span><kbd>Esc</kbd> exit</span></div>}
       <button type="button" className="rh-exit" onClick={() => { sfx.tap(); onExit(); }}>Exit</button>
     </div>
   );

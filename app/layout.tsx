@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from 'next';
 import { Barlow_Condensed, JetBrains_Mono } from 'next/font/google';
+import './tokens.css';
 import './globals.css';
 import './stage.css';
 
 export const metadata: Metadata = {
   title: 'Kaloyan Gaydarov | Full-stack web developer',
   description:
-    'Kaloyan Gaydarov is a full-stack web developer in Varna, Bulgaria, building with React, Next.js, Vue, PHP and Three.js. Unlock the phone to explore projects and experience.',
+    'Kaloyan Gaydarov is a full-stack web developer in Varna, Bulgaria, building with React, Next.js, Vue, PHP and Three.js. Turn on the phone to explore projects and experience, or race a lap of the career.',
   openGraph: {
     title: 'Kaloyan Gaydarov | Full-stack web developer',
     description: 'Unlock the phone to explore projects and experience.',

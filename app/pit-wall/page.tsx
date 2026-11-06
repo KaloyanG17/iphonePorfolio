@@ -13,10 +13,10 @@ export default function PitWall() {
   return (
     <main className="pitwall">
       <header>
-        <p className="pw-kicker">Pit wall · the whole site on one page</p>
         <h1>{profile.name}</h1>
-        <p className="pw-role">{profile.role} · {profile.location} · {profile.company}</p>
+        <p className="pw-role">{profile.role} at {profile.company}, {profile.location}</p>
         <p className="pw-intro">{profile.intro}</p>
+        <p className="pw-note">This is the plain, one-page version of the Grand Prix site.</p>
         <nav className="pw-links" aria-label="Contact">
           <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
@@ -41,14 +41,14 @@ export default function PitWall() {
       </section>
 
       <section aria-labelledby="projects">
-        <h2 id="projects">Projects</h2>
+        <h2 id="projects">What I have built</h2>
         <ul className="pw-projects">
           {projects.map((p) => (
             <li key={p.slug} style={{ ['--c1' as string]: p.colors[0] }}>
               <h3>{p.name}</h3>
               <p className="pw-tag">{p.tagline}</p>
               <p>{p.description}</p>
-              <p className="pw-stack">{p.stack.join(' · ')}</p>
+              <p className="pw-stack">{p.stack.join(', ')}</p>
               <p className="pw-plinks">
                 {p.live && <a href={p.live} target="_blank" rel="noreferrer">Live site</a>}
                 <a href={p.repo} target="_blank" rel="noreferrer">Code</a>

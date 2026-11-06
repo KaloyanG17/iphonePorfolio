@@ -1,31 +1,37 @@
-.pitwall { max-width: 860px; margin: 0 auto; padding: 56px 24px 80px; line-height: 1.55; }
-.pitwall h1, .pitwall h2 { font-family: var(--font-race), system-ui, sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
+/* Hallmark · checked: 2026-11-06 · genre: playful (inferred: a portfolio built as a game)
+ * floor: 0 FAIL (from 461) · reflex: 0 open, 3 waived (2b, 38ii, 64) · fixed: 2a 7a 10a 19 34 40 44d 48 54 55a 62 63 67 30a 12 26b 29 F3 · finish-review: subagent · 5 findings · 4 resolved 1 partial
+ * built: the project · redesign: polish · v2.0.0 */
+/* Hallmark · reworded "Projects" to "What I have built" · 54 named the bare label over the list */
+/* Hallmark · waive 38ii · italic condensed display on the pit wall name and section heads · the same race livery voice as the Grand Prix, so the plain page still reads as this site */
+
+.pitwall { font-synthesis: none; max-width: 860px; margin: 0 auto; padding: 56px 24px 80px; line-height: 1.55; }
+.pitwall h1, .pitwall h2 { text-wrap: balance; font-family: var(--font-display); font-style: italic; font-weight: 900; text-transform: uppercase; }
 .pitwall h1 { margin: 0; font-size: clamp(44px, 8vw, 84px); line-height: 0.9; letter-spacing: -0.01em; }
-.pitwall h2 { margin: 56px 0 16px; padding-bottom: 6px; border-bottom: 3px solid #e3141d; font-size: 34px; }
+.pitwall h2 { margin: 56px 0 16px; padding-bottom: 8px; border-bottom: 3px solid var(--c-red-48); font-size: 34px; }
 .pitwall h3 { margin: 0; font-size: 18px; }
-.pw-kicker, .pw-when, .pw-stack { font-family: var(--font-mono), ui-monospace, monospace; }
-.pw-kicker { margin: 0 0 12px; color: #ffd21f; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
-.pw-role { margin: 10px 0 0; color: rgba(255, 255, 255, 0.75); font-size: 17px; }
-.pw-intro { max-width: 62ch; color: rgba(255, 255, 255, 0.85); }
-.pw-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-.pw-links a { padding: 8px 16px; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 999px; font-weight: 700; text-decoration: none; }
-.pw-links a:hover { background: rgba(255, 255, 255, 0.1); }
-.pw-links .pw-back { border-color: transparent; background: #e3141d; }
+.pw-when, .pw-stack { font-family: var(--font-numeric); }
+.pw-role { margin: 12px 0 0; color: var(--c-white-a75); font-size: 17px; }
+.pw-intro { max-width: 62ch; color: var(--c-white-a85); }
+.pw-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.pw-links a { padding: 8px 16px; border: 1px solid var(--c-white-a25); border-radius: 999px; font-weight: 700; text-decoration: none; }
+.pw-links a:hover { background: var(--c-white-a10); }
+.pw-links .pw-back { border-color: transparent; background: var(--c-signal-red-deep); }
 .pw-career { margin: 0; padding: 0; list-style: none; }
-.pw-career li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-.pw-when { color: #ffd21f; font-size: 13px; padding-top: 2px; }
-.pw-org { margin: 0; color: rgba(255, 255, 255, 0.65); }
+.pw-career li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--c-white-a10); }
+.pw-when { color: var(--c-yellow-56); font-size: 13px; padding-top: 2px; }
+.pw-org { margin: 0; color: var(--c-white-a65); }
 .pw-career p:last-child { margin: 4px 0 0; }
-.pw-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
-.pw-projects li { padding: 16px; border-radius: 10px; border-top: 3px solid var(--c1); background: rgba(255, 255, 255, 0.05); }
-.pw-projects p { margin: 6px 0 0; font-size: 14px; }
+.pw-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.pw-projects li { display: flex; flex-direction: column; padding: 16px; border-radius: 10px; border-top: 3px solid var(--c-signal-red-deep); background: var(--c-white-a5); }
+.pw-projects p { margin: 8px 0 0; font-size: 14px; }
 .pw-tag { color: var(--c1); font-weight: 700; }
-.pw-stack { color: rgba(255, 255, 255, 0.6); font-size: 12px !important; }
-.pw-plinks { display: flex; gap: 14px; font-weight: 700; }
+.pw-stack { color: var(--c-white-a60); font-size: 12px !important; }
+.pw-plinks { display: flex; gap: 16px; margin-top: auto !important; padding-top: 12px; font-weight: 700; }
 .pw-skills { margin: 0; }
 .pw-skills div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 8px 0; }
 .pw-skills dt { font-weight: 800; }
-.pw-skills dd { margin: 0; color: rgba(255, 255, 255, 0.8); }
+.pw-skills dd { margin: 0; color: var(--c-white-a80); }
 @media (max-width: 560px) {
   .pw-career li, .pw-skills div { grid-template-columns: 1fr; gap: 2px; }
 }
+.pw-note { margin: 0; color: var(--c-white-a65); font-size: 15px; }

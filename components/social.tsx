@@ -92,7 +92,7 @@ export function GitHubApp({ repo, onPick, onWeb }: { repo: string | null; onPick
           <h3>{r.name}</h3>
           {r.description && <p>{r.description}</p>}
           <div className="gh-meta">
-            {r.language && <span><i style={{ background: LANG[r.language] ?? '#8b949e' }} />{r.language}</span>}
+            {r.language && <span><i style={{ background: LANG[r.language] ?? 'var(--c-lang-other)' }} />{r.language}</span>}
             <span>★ {r.stargazers_count}</span>
             {r.updated_at && <span>{ago(r.updated_at)}</span>}
           </div>
@@ -133,7 +133,7 @@ export function GitHubApp({ repo, onPick, onWeb }: { repo: string | null; onPick
               <strong>{x.name}</strong>
               {x.description && <small>{x.description}</small>}
               <span className="gh-meta">
-                {x.language && <span><i style={{ background: LANG[x.language] ?? '#8b949e' }} />{x.language}</span>}
+                {x.language && <span><i style={{ background: LANG[x.language] ?? 'var(--c-lang-other)' }} />{x.language}</span>}
                 {x.updated_at && <span>{ago(x.updated_at)}</span>}
               </span>
             </button>

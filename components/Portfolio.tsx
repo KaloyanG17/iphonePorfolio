@@ -57,6 +57,10 @@ export default function Portfolio() {
   live.current = { power, locked, app, volume, muted, racing };
 
   useEffect(() => {
+    document.documentElement.classList.add('js');
+  }, []);
+
+  useEffect(() => {
     const c = document.createElement('canvas');
     setWebgl(!!(c.getContext('webgl2') || c.getContext('webgl')));
     const v = Number(localStorage.getItem('kg-volume') ?? 0.6);
@@ -297,7 +301,6 @@ export default function Portfolio() {
       </div>
 
       <header className="hud hud-tl">
-        <p className="kicker">kgOS 4 · portfolio</p>
         <h1>{profile.name}</h1>
         <p className="role">{profile.role} · {profile.location}</p>
         <nav className="jump" aria-label="Open an app on the phone">

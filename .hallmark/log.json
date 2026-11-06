@@ -1,0 +1,26 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "polish",
+  "scope": "site",
+  "prompt": "portfolio of a full-stack developer built as a 3D phone with a racing game",
+  "pages": [
+   "/",
+   "/pit-wall"
+  ],
+  "waived": [
+   "2b",
+   "38ii",
+   "64"
+  ],
+  "before": {
+   "fail": 461,
+   "reflex": 145
+  },
+  "after": {
+   "fail": 0,
+   "reflex": 0
+  },
+  "date": "2026-11-06"
+ }
+]
