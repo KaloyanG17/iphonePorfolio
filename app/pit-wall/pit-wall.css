@@ -1,0 +1,31 @@
+.pitwall { max-width: 860px; margin: 0 auto; padding: 56px 24px 80px; line-height: 1.55; }
+.pitwall h1, .pitwall h2 { font-family: var(--font-race), system-ui, sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
+.pitwall h1 { margin: 0; font-size: clamp(44px, 8vw, 84px); line-height: 0.9; letter-spacing: -0.01em; }
+.pitwall h2 { margin: 56px 0 16px; padding-bottom: 6px; border-bottom: 3px solid #e3141d; font-size: 34px; }
+.pitwall h3 { margin: 0; font-size: 18px; }
+.pw-kicker, .pw-when, .pw-stack { font-family: var(--font-mono), ui-monospace, monospace; }
+.pw-kicker { margin: 0 0 12px; color: #ffd21f; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+.pw-role { margin: 10px 0 0; color: rgba(255, 255, 255, 0.75); font-size: 17px; }
+.pw-intro { max-width: 62ch; color: rgba(255, 255, 255, 0.85); }
+.pw-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.pw-links a { padding: 8px 16px; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 999px; font-weight: 700; text-decoration: none; }
+.pw-links a:hover { background: rgba(255, 255, 255, 0.1); }
+.pw-links .pw-back { border-color: transparent; background: #e3141d; }
+.pw-career { margin: 0; padding: 0; list-style: none; }
+.pw-career li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.pw-when { color: #ffd21f; font-size: 13px; padding-top: 2px; }
+.pw-org { margin: 0; color: rgba(255, 255, 255, 0.65); }
+.pw-career p:last-child { margin: 4px 0 0; }
+.pw-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.pw-projects li { padding: 16px; border-radius: 10px; border-top: 3px solid var(--c1); background: rgba(255, 255, 255, 0.05); }
+.pw-projects p { margin: 6px 0 0; font-size: 14px; }
+.pw-tag { color: var(--c1); font-weight: 700; }
+.pw-stack { color: rgba(255, 255, 255, 0.6); font-size: 12px !important; }
+.pw-plinks { display: flex; gap: 14px; font-weight: 700; }
+.pw-skills { margin: 0; }
+.pw-skills div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 8px 0; }
+.pw-skills dt { font-weight: 800; }
+.pw-skills dd { margin: 0; color: rgba(255, 255, 255, 0.8); }
+@media (max-width: 560px) {
+  .pw-career li, .pw-skills div { grid-template-columns: 1fr; gap: 2px; }
+}
