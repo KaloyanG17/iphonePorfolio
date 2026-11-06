@@ -388,11 +388,16 @@ function CameraRig({ focus, reduced, landscape }: { focus: Focus; reduced: boole
     const aspect = size.width / size.height;
     l.current += ((landscape ? 1 : 0) - l.current) * (1 - Math.exp(-delta * 4));
     // Swap which side of the phone must fit the view as it turns on its side
+    const narrow = aspect < 0.8; // a phone held upright
     const tall = H * (1 - l.current) + W * l.current;
-    const wide = W * (1 - l.current) + H * l.current;
-    const fit = Math.max(tall / 0.76 / 2 / half, wide / (0.8 - 0.08 * l.current) / 2 / half / aspect);
-    const near = aspect < 0.8 ? 0.98 : 0.9; // portrait screens have no room to push in
-    const target = focus === 'far' ? 1.12 : focus === 'near' ? near : 1;
+    // On a narrow screen the race fits the phone's display, not its body, to the width: the bezels run off the
+    // edges and the game gets about twice the pixels. Elsewhere the whole phone stays in view.
+    const wide = W * (1 - l.current) + (narrow ? SCREEN_H : H) * l.current;
+    const fillH = narrow ? 0.9 : 0.76;
+    const fillW = narrow ? 0.94 + 0.03 * l.current : 0.8 - 0.08 * l.current;
+    const fit = Math.max(tall / fillH / 2 / half, wide / fillW / 2 / half / aspect);
+    const near = narrow ? 0.98 : 0.9; // portrait screens have no room to push in
+    const target = focus === 'far' ? (narrow ? 1.03 : 1.12) : focus === 'near' ? near : 1;
     k.current += (target - k.current) * (1 - Math.exp(-delta * (reduced ? 30 : 2.6)));
     cam.position.set(0, 0, fit * k.current);
   });
