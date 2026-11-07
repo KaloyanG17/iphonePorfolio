@@ -5,13 +5,19 @@
 
 .page {
   position: relative; display: block; height: 100dvh; max-width: none; margin: 0; padding: 0; overflow: hidden;
-  transition: --accent 0.9s ease;
+  transition: --accent 400ms var(--ease-in-out);
   background:
     var(--noise),
     radial-gradient(38% 52% at 50% 50%, color-mix(in srgb, var(--accent) 75%, transparent) 0%, transparent 72%),
-    radial-gradient(30% 34% at var(--mx, 50%) var(--my, 40%), color-mix(in srgb, var(--accent) 38%, transparent), transparent 75%),
     linear-gradient(160deg, color-mix(in srgb, var(--accent) 28%, var(--c-blue-4-3)) 0%, var(--c-blue-4-3) 75%);
 }
+.spot {
+  position: absolute; left: 0; top: 0; z-index: 0; width: 60vmax; height: 60vmax; margin: -30vmax 0 0 -30vmax;
+  border-radius: 50%; pointer-events: none; will-change: transform;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 38%, transparent), transparent);
+  transform: translate(50vw, 40vh);
+}
+@media (prefers-reduced-motion: reduce) { .spot { display: none; } }
 .page::after { /* vignette */
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(120% 90% at 50% 50%, transparent 55%, var(--c-black-a55) 100%);

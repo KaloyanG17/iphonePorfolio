@@ -51,6 +51,7 @@ export default function Portfolio() {
   const bootTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const closeTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const mainRef = useRef<HTMLElement>(null);
+  const spotRef = useRef<HTMLDivElement>(null);
 
   // Latest state for the global key handler without re-binding it every render
   const live = useRef({ power, locked, app, volume, muted, racing });
@@ -280,10 +281,10 @@ export default function Portfolio() {
       className={`page ${lit ? 'is-lit' : 'is-off'}`}
       style={{ '--accent': accent } as CSSProperties}
       onPointerMove={(e) => {
-        mainRef.current?.style.setProperty('--mx', `${(e.clientX / innerWidth) * 100}%`);
-        mainRef.current?.style.setProperty('--my', `${(e.clientY / innerHeight) * 100}%`);
+        if (spotRef.current) spotRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       }}
     >
+      <div className="spot" ref={spotRef} aria-hidden="true" />
       {racing && <RaceBackdrop />}
       <div className={`backdrop ${racing ? 'hide' : ''}`} aria-hidden="true">
         <div className="marquee"><span>KALOYAN GAYDAROV · FULL-STACK DEVELOPER · KALOYAN GAYDAROV · FULL-STACK DEVELOPER ·&nbsp;</span></div>
