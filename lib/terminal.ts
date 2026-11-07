@@ -2,7 +2,7 @@ import { profile, projects, type AppId } from './data.ts';
 
 export type TermResult = { lines: string[]; open?: AppId; project?: string; clear?: boolean };
 
-const APPS: AppId[] = ['about', 'career', 'projects', 'messages', 'terminal', 'github', 'linkedin'];
+const APPS: AppId[] = ['about', 'career', 'projects', 'messages', 'terminal', 'github', 'linkedin', 'cv'];
 
 export function run(raw: string): TermResult {
   const [cmd = '', ...args] = raw.trim().split(/\s+/);

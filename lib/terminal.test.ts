@@ -12,6 +12,7 @@ assert.equal(run('open nope').open, undefined);
 assert.equal(run('sudo hire-me').open, 'messages');
 assert.equal(run('open github').open, 'github');
 assert.equal(run('open LinkedIn').open, 'linkedin');
+assert.equal(run('open cv').open, 'cv');
 assert.equal(run('sudo rm -rf').open, undefined);
 assert.equal(run('clear').clear, true);
 assert.match(run('wat').lines[0], /command not found: wat/);

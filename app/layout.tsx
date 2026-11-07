@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Barlow_Condensed, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './tokens.css';
 import './globals.css';
 import './stage.css';
@@ -25,7 +26,10 @@ const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['500', '700', '800'],
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${race.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

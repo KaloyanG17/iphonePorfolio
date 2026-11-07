@@ -21,7 +21,7 @@ const KEY_BTN: Record<string, Btn> = {
 // The backdrop takes on the colour of whatever is on screen
 const ACCENT: Record<AppId, string> = {
   about: '#56627a', career: '#d5641a', projects: '#1c5fc0', messages: '#279a1f',
-  terminal: '#1d7a3c', github: '#3e4756', linkedin: '#0a66c2',
+  terminal: '#1d7a3c', github: '#3e4756', linkedin: '#0a66c2', cv: '#b8302a',
 };
 const FINISHES: { id: Finish; label: string; swatch: string }[] = [
   { id: 'black', label: 'Black', swatch: '#111214' },

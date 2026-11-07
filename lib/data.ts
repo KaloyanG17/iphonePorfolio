@@ -1,4 +1,4 @@
-export type AppId = 'about' | 'career' | 'projects' | 'messages' | 'terminal' | 'github' | 'linkedin';
+export type AppId = 'about' | 'career' | 'projects' | 'messages' | 'terminal' | 'github' | 'linkedin' | 'cv';
 
 export const profile = {
   name: 'Kaloyan Gaydarov',
@@ -10,6 +10,7 @@ export const profile = {
   github: 'https://github.com/KaloyanG17',
   linkedin: 'https://www.linkedin.com/in/kaloyan-gaydarov/',
   oldSite: 'https://kaloyan.vercel.app',
+  cv: '/cv.pdf', // drop the PDF into public/cv.pdf; the CV app and pit wall pick it up
   intro:
     'Computer Science graduate from the University of Exeter. I work professionally with JavaScript and PHP, and build on the side with TypeScript, React, Next.js, Vue and Nuxt, plus a lot of Three.js.',
 };

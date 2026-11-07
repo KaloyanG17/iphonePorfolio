@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { experience, profile, projects, skills } from '@/lib/data';
@@ -8,6 +10,9 @@ export const metadata: Metadata = {
   title: `Pit wall | ${profile.name}`,
   description: `${profile.name}: ${profile.role} in ${profile.location}. Career, projects and contact details on one page.`,
 };
+
+// Checked at build time: the link only appears once public/cv.pdf exists
+const hasCv = existsSync(path.join(process.cwd(), 'public', 'cv.pdf'));
 
 export default function PitWall() {
   return (
@@ -20,6 +25,7 @@ export default function PitWall() {
         <nav className="pw-links" aria-label="Contact">
           <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+          {hasCv && <a href={profile.cv} download>Download CV</a>}
           <Link href="/" className="pw-back">Back to the Grand Prix</Link>
         </nav>
       </header>

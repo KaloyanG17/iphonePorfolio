@@ -35,6 +35,11 @@ export const APP_META: Record<AppId, { label: string; bg: [string, string]; icon
   },
   github: { label: 'GitHub', bg: ['#5b6270', '#1d2129'], icon: <b className="icon-text">GH</b> },
   linkedin: { label: 'LinkedIn', bg: ['#4fa3e6', '#0a5aa8'], icon: <b className="icon-text">in</b> },
+  cv: {
+    label: 'CV',
+    bg: ['#ff7a6b', '#c9302a'],
+    icon: svg(<><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10.5a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5z" /><path d="M14 3.5V8h4M9 12h6M9 15.5h6" /></>),
+  },
 };
 
 export const LINK_ICONS = {

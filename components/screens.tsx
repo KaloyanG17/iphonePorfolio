@@ -194,6 +194,7 @@ export function HomeScreen({ onOpen, onWeb, behind, onRace }: {
             <Icon bg={LINK_ICONS.oldSite.bg}><b className="icon-text">{LINK_ICONS.oldSite.text}</b></Icon>
             {LINK_ICONS.oldSite.label}
           </button>
+          {appBtn('cv', 1, 3)}
         </nav>
       </div>
       <div className="dots" aria-hidden="true"><i /></div>
@@ -324,6 +325,41 @@ function ProjectDetail({ slug, onWeb }: { slug: string; onWeb: (url: string) => 
   );
 }
 
+function Cv() {
+  // Check the PDF is really there, so a missing file reads as a message, not a broken viewer
+  const [state, setState] = useState<'checking' | 'ready' | 'missing'>('checking');
+  useEffect(() => {
+    let alive = true;
+    fetch(profile.cv, { method: 'HEAD' })
+      .then((r) => alive && setState(r.ok ? 'ready' : 'missing'))
+      .catch(() => alive && setState('missing'));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  if (state === 'checking') {
+    return <div className="body gh gh-loading" role="status"><span className="spinner" aria-hidden="true" />Loading CV…</div>;
+  }
+  if (state === 'missing') {
+    return (
+      <div className="body grouped">
+        <p className="note">My CV is being updated. Message me on LinkedIn and I’ll send you the latest copy.</p>
+        <a className="btn" href={profile.linkedin} target="_blank" rel="noreferrer">Message me on LinkedIn</a>
+      </div>
+    );
+  }
+  return (
+    <div className="body cv">
+      <iframe className="cv-frame" src={`${profile.cv}#view=FitH`} title={`CV of ${profile.name}`} />
+      <div className="cv-actions">
+        <a className="btn" href={profile.cv} download={`${profile.name.replace(/\s+/g, '-')}-CV.pdf`}>Download CV</a>
+        <a className="btn alt" href={profile.cv} target="_blank" rel="noreferrer">Open in a new tab</a>
+      </div>
+    </div>
+  );
+}
+
 type Msg = { me?: boolean; text: string; action?: { label: string; href?: string; open?: AppId } };
 
 const QA: { q: string; a: Msg }[] = [
@@ -422,6 +458,7 @@ export function AppView({ app, project, setProject, onOpen, onHome, onWeb, closi
       {app === 'terminal' && <Terminal onOpen={onOpen} />}
       {app === 'github' && <GitHubApp repo={project} onPick={setProject} onWeb={onWeb} />}
       {app === 'linkedin' && <LinkedInApp />}
+      {app === 'cv' && <Cv />}
     </section>
   );
 }
