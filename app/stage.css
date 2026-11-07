@@ -303,10 +303,12 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 .backdrop.hide { opacity: 0; }
 
 .race-backdrop {
-  --fast: 0; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; user-select: none;
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; user-select: none;
   animation: rbIn 0.8s ease both;
-  background:
-    radial-gradient(60% 50% at 50% 55%, color-mix(in srgb, var(--c-signal-red) calc((0.12 + var(--fast) * 0.25) * 100%), transparent), transparent 70%);
+}
+.rb-glow {
+  position: absolute; inset: 0; opacity: 0.32; will-change: opacity;
+  background: radial-gradient(60% 50% at 50% 55%, color-mix(in srgb, var(--c-signal-red) 37%, transparent), transparent 70%);
 }
 @keyframes rbIn { from { opacity: 0; } }
 .rb-lap {
@@ -318,10 +320,10 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 .rb-speed {
   position: absolute; right: 38px; bottom: 76px; display: flex; align-items: baseline; gap: 8px;
   font: italic 800 clamp(48px, 7vw, 110px)/1 var(--font-numeric); font-variant-numeric: tabular-nums;
-  color: color-mix(in srgb, var(--c-chalk) calc((0.18 + var(--fast) * 0.5) * 100%), transparent); letter-spacing: -0.04em;
+  color: var(--c-chalk); opacity: 0.18; letter-spacing: -0.04em;
 }
 .rb-speed small { font-size: 0.2em; color: var(--c-yellow-56); }
-.rb-streaks { position: absolute; inset: 0; opacity: calc(var(--fast) * 1.2); }
+.rb-streaks { position: absolute; inset: 0; opacity: 0; will-change: opacity; }
 .rb-streaks i {
   position: absolute; left: 0; height: 2px; width: 34vw; top: calc(6% + var(--i) * 6.6%);
   background: linear-gradient(90deg, transparent, var(--c-white-a55), transparent); border-radius: 2px;
