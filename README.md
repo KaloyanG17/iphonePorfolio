@@ -1,6 +1,5 @@
 # KG Grand Prix — Kaloyan Gaydarov's portfolio
 
-[![CI](https://github.com/KaloyanG17/iphonePorfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/KaloyanG17/iphonePorfolio/actions/workflows/ci.yml)
 
 **A portfolio you play.** A 3D phone of my own design that you can spin, unlock and use, with a racing game inside it. You drive one lap of my career, then pull into the pit lane to try my projects.
 
