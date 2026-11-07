@@ -87,7 +87,7 @@ export default function PhoneScreen(p: Props) {
       )}
 
       {p.hud && lit && (
-        <div className="hud-pop" key={p.hud.id} role="status">
+        <div className="hud-pop" key={p.hud.kind} role="status">
           {p.hud.kind === 'volume' ? (
             <>
               <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
