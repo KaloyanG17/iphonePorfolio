@@ -63,7 +63,7 @@
 .hud.finishes button {
   width: 28px; height: 28px; padding: 0; border: 2px solid var(--c-white-a25); border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, var(--c-white-a60), transparent 45%), var(--sw);
-  box-shadow: 0 3px 8px var(--c-black-a55); transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+  box-shadow: 0 3px 8px var(--c-black-a55); transition: transform 0.2s var(--ease-out), border-color 0.2s;
 }
 .hud.finishes button.on { border-color: var(--c-blue-99); transform: scale(1.18); }
 
@@ -90,9 +90,9 @@
 
 /* ---------- iOS 4 motion: springboard fly-in, zoom from icon, zoom back ---------- */
 
-.home .app-icon { animation: flyIn 0.65s cubic-bezier(0.2, 0.9, 0.25, 1.08) both; animation-delay: calc(var(--i, 0) * 32ms + 60ms); }
+.home .app-icon { animation: flyIn 0.65s var(--ease-spring-soft) both; animation-delay: calc(var(--i, 0) * 32ms + 60ms); }
 @keyframes flyIn { from { transform: translate(var(--fx, 0), var(--fy, 0)) scale(1.9); opacity: 0; } }
-.home .grid, .home .dock { transition: transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease; }
+.home .grid, .home .dock { transition: transform 0.38s var(--ease-out), opacity 0.3s ease; }
 .js .home.behind .grid { transform: scale(1.3); opacity: 0; }
 .js .home.behind .dock { transform: translateY(40px); opacity: 0; }
 .app.closing { animation: zoomOut 0.28s cubic-bezier(0.4, 0, 0.9, 0.5) forwards; }
@@ -105,7 +105,7 @@
   border: 1px solid var(--c-white-a20); border-radius: 12px; color: var(--c-blue-99);
   background: linear-gradient(var(--c-grey-33-a88), var(--c-grey-11-a92));
   box-shadow: 0 8px 22px var(--c-black-a50), inset 0 1px 0 var(--c-white-a15);
-  animation: noticeIn 0.55s 0.35s cubic-bezier(0.2, 0.9, 0.25, 1.25) both;
+  animation: noticeIn 0.55s 0.35s var(--ease-spring) both;
 }
 @keyframes noticeIn { from { transform: translateY(-14px) scale(0.92); opacity: 0; } }
 .lock-notice-icon { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 7px; background: linear-gradient(var(--c-green-68), var(--c-green-37)); }
@@ -119,7 +119,7 @@
 
 .safari {
   position: absolute; inset: 20px 0 0 0; z-index: 35; display: flex; flex-direction: column; background: var(--c-blue-99);
-  animation: zoomIn 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: zoomIn 0.32s var(--ease-out);
 }
 .safari-bar, .safari-tools { flex: none; display: flex; align-items: center; background: linear-gradient(var(--c-blue-78), var(--c-blue-62-2)); }
 .safari-bar { gap: 6px; padding: 6px; border-bottom: 1px solid var(--c-blue-36-3); }
@@ -179,7 +179,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 .rh-flash {
   position: absolute; left: 50%; top: 50%; display: flex; flex-direction: column; align-items: center; padding: 10px 22px;
   border-radius: 8px; background: var(--c-blue-5-a78); transform: translate(-50%, -50%) scale(0.8) skewX(-10deg);
-  transition: opacity 0.2s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;
+  transition: opacity 0.2s, transform 0.35s var(--ease-out); pointer-events: none;
 }
 .rh-flash.show { opacity: 1; transform: translate(-50%, -50%) scale(1) skewX(-10deg); }
 .rh-flash small { font: 700 11px/1.4 var(--font-numeric); }
@@ -198,7 +198,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 .rh-radio {
   position: absolute; left: 10px; top: 72px; width: 230px; display: flex; flex-direction: column; gap: 2px; padding: 8px 11px;
   border-radius: 6px; background: var(--c-blue-5-a78); border-left: 3px solid var(--c-yellow-56); pointer-events: none;
-  animation: radioIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both, radioOut 0.4s ease-in 4.8s forwards;
+  animation: radioIn 0.35s var(--ease-out) both, radioOut 0.4s ease-in 4.8s forwards;
 }
 .rh-radio small { display: flex; align-items: center; gap: 6px; font: 700 10px/1.3 var(--font-numeric); color: var(--c-yellow-56); }
 .rh-radio small i { width: 7px; height: 7px; border-radius: 50%; background: var(--c-red-48); animation: blink 0.6s steps(2) infinite; }
@@ -212,7 +212,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
   position: absolute; right: 10px; top: 72px; z-index: 3; width: 220px; display: flex; flex-direction: column; gap: 3px; padding: 10px 12px;
   border-radius: 8px; background: linear-gradient(160deg, color-mix(in srgb, var(--c2) 85%, var(--c-blue-3)), var(--c-blue-6) 75%);
   border-top: 3px solid var(--c1); box-shadow: 0 8px 24px var(--c-black-a45);
-  animation: cardUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: cardUp 0.4s var(--ease-out) both;
 }
 .rh-card small { font: 700 10px/1.3 var(--font-numeric); color: var(--c1); }
 .rh-card b { font: italic 900 25px/1.1 var(--font-display); letter-spacing: -0.02em; }
@@ -240,7 +240,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 .rh-title, .rh-podium {
   position: absolute; left: 50%; top: 54%; z-index: 4; width: 340px; transform: translate(-50%, -50%);
   padding: 14px 18px; border-radius: 10px; background: var(--c-blue-5-a86); border-top: 3px solid var(--c-red-48);
-  box-shadow: 0 12px 32px var(--c-black-a50); animation: cardUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  box-shadow: 0 12px 32px var(--c-black-a50); animation: cardUp 0.45s var(--ease-out) both;
 }
 .rh-title { text-align: center; }
 .rh-title small, .rh-podium small { font: 700 10px/1.4 var(--font-numeric); color: var(--c-yellow-56); }
@@ -272,7 +272,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
   position: absolute; left: 50%; top: 52%; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 30px;
   transform: translate(-50%, -50%) skewX(-10deg); pointer-events: none; color: var(--c-grey-7);
   background: repeating-conic-gradient(var(--c-grey-7) 0 25%, var(--c-grey-96) 0 50%) 0 0 / 22px 22px;
-  border-radius: 6px; box-shadow: 0 10px 30px var(--c-black-a50); animation: cardUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  border-radius: 6px; box-shadow: 0 10px 30px var(--c-black-a50); animation: cardUp 0.4s var(--ease-out) both;
 }
 .rh-flag > * { padding: 1px 10px; background: var(--c-grey-96); }
 .rh-flag small { font: 700 11px/1.5 var(--font-numeric); }
@@ -372,7 +372,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
   .rh-auto { bottom: 76px; }
 }
 /* the flag has its moment, then clears the way (the podium, or the garage tour after Watch a lap) */
-.rh-flag { animation: cardUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both, flagOut 0.35s ease-in 2.3s forwards; }
+.rh-flag { animation: cardUp 0.4s var(--ease-out) both, flagOut 0.35s ease-in 2.3s forwards; }
 @keyframes flagOut { to { opacity: 0; transform: translate(-50%, -50%) skewX(-10deg) scale(0.9); } }
 @media (prefers-reduced-motion: reduce) { .rh-flag { animation: flagOut 0.01s 2.4s forwards; } }
 
