@@ -340,8 +340,14 @@ body.grabbing, body.grabbing * { cursor: grabbing !important; }
 .term-line input { flex: 1; min-width: 0; border: 0; outline: 0; padding: 0; background: transparent; color: inherit; font: inherit; caret-color: var(--c-green-56-2); }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+  /* fewer and gentler, not none: keep fades that explain a change, drop scale, slide and shimmer */
+  .app, .safari, .banner, .hud-pop { animation: fadeIn 200ms var(--ease-out); }
+  .bubble { animation: fadeIn 200ms var(--ease-out) both; }
+  .slide-text, .power-hint { animation: none; }
+  .knob.settle { transition: none; }
 }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes fadeOut { to { opacity: 0; } }
 
 /* ---------- 3D screen, power states, HUD ---------- */
 

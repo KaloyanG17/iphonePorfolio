@@ -395,3 +395,14 @@ button:disabled, [aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
   .rb-speed { right: calc((100% - 1520px) / 2); }
 }
 .page .power-hint { min-height: 44px; }
+@media (prefers-reduced-motion: reduce) {
+  .home .app-icon { animation: fadeIn 200ms var(--ease-out) both; animation-delay: 0s; }
+  .home .grid, .home .dock { transition: opacity 200ms var(--ease-out); }
+  .js .home.behind .grid, .js .home.behind .dock { transform: none; }
+  .app.closing { animation: fadeOut 150ms var(--ease-out) forwards; }
+  .lock-notice { animation: fadeIn 200ms var(--ease-out) 0.35s both; }
+  .power-hint .dot, .rh-radio small i { animation: none; }
+  .hud.finishes button { transition: border-color 200ms var(--ease-out); }
+  .hud.finishes button.on { transform: none; }
+  .rh-flash { transition: opacity 200ms var(--ease-out); }
+}
