@@ -96,56 +96,13 @@
 
 /* ---------- iOS 4 motion: springboard fly-in, zoom from icon, zoom back ---------- */
 
-.home .app-icon { animation: flyIn 0.65s var(--ease-spring-soft) both; animation-delay: calc(var(--i, 0) * 32ms + 60ms); }
+.home .app-icon, .home .widget { animation: flyIn 0.65s var(--ease-spring-soft) both; animation-delay: calc(var(--i, 0) * 32ms + 60ms); }
 @keyframes flyIn { from { transform: translate(var(--fx, 0), var(--fy, 0)) scale(1.9); opacity: 0; } }
 .home .grid, .home .dock { transition: transform 0.38s var(--ease-out), opacity 0.3s ease; }
 .js .home.behind .grid { transform: scale(1.3); opacity: 0; }
 .js .home.behind .dock { transform: translateY(40px); opacity: 0; }
 .app.closing { animation: zoomOut 220ms var(--ease-out) forwards; }
 @keyframes zoomOut { to { transform: scale(0.12); opacity: 0; } }
-
-/* ---------- Lock screen notification ---------- */
-
-.lock-notice {
-  position: absolute; left: 12px; right: 12px; top: 142px; display: flex; gap: 10px; padding: 10px 12px;
-  border: 1px solid var(--c-white-a20); border-radius: 12px; color: var(--c-blue-99);
-  background: linear-gradient(var(--c-grey-33-a88), var(--c-grey-11-a92));
-  box-shadow: 0 8px 22px var(--c-black-a50), inset 0 1px 0 var(--c-white-a15);
-  animation: noticeIn 0.55s 0.35s var(--ease-spring) both;
-}
-@keyframes noticeIn { from { transform: translateY(-14px) scale(0.92); opacity: 0; } }
-.lock-notice-icon { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 7px; background: linear-gradient(var(--c-green-68), var(--c-green-37)); }
-.lock-notice-icon svg { width: 20px; height: 20px; }
-.lock-notice div { flex: 1; min-width: 0; }
-.lock-notice strong { font-size: 14px; }
-.lock-notice small { float: right; color: var(--c-white-a55); font-size: 11px; }
-.lock-notice p { margin: 2px 0 0; font-size: 13px; line-height: 1.35; }
-
-/* ---------- In-phone Safari ---------- */
-
-.safari {
-  position: absolute; inset: 20px 0 0 0; z-index: 35; display: flex; flex-direction: column; background: var(--c-blue-99);
-  animation: zoomIn 0.32s var(--ease-out);
-}
-.safari-bar, .safari-tools { flex: none; display: flex; align-items: center; background: linear-gradient(var(--c-blue-78), var(--c-blue-62-2)); }
-.safari-bar { gap: 6px; padding: 6px; border-bottom: 1px solid var(--c-blue-36-3); }
-.safari-url {
-  position: relative; flex: 1; min-width: 0; height: 28px; display: flex; align-items: center; padding: 0 10px; overflow: hidden;
-  border-radius: 7px; background: var(--c-blue-99); box-shadow: inset 0 1px 2px var(--c-black-a35); color: var(--c-grey-20); font-size: 13px; white-space: nowrap;
-}
-.safari-progress {
-  position: absolute; inset: 0; transform-origin: left center; background: linear-gradient(var(--c-blue-74-a50), var(--c-blue-57-a50));
-  animation: progress 2.4s ease-out forwards;
-}
-@keyframes progress { from { transform: scaleX(0.04); } to { transform: scaleX(0.88); } }
-.safari-done {
-  height: 28px; padding: 0 11px; border: 1px solid var(--c-blue-35); border-radius: 6px; color: var(--c-blue-99); font-size: 12px; font-weight: 700;
-  background: linear-gradient(var(--c-blue-69), var(--c-blue-52) 50%, var(--c-blue-46) 51%, var(--c-blue-44-2)); text-shadow: 0 -1px 0 var(--c-black-a40);
-}
-.safari iframe { flex: 1; width: 100%; border: 0; background: var(--c-blue-99); }
-.safari-spin { position: absolute; left: 50%; top: 50%; margin: -13px 0 0 -13px; }
-.safari-tools { justify-content: space-between; padding: 7px 10px; border-top: 1px solid var(--c-blue-36-3); color: var(--c-blue-16); font-size: 12px; }
-.safari-tools a { color: var(--c-blue-16); font-weight: 700; text-decoration: none; }
 
 button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 
@@ -162,7 +119,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 
 /* The phone lies on its side, so the HUD is a 480x320 layer turned upright inside the 320x480 screen */
 .race-hud {
-  position: absolute; left: -80px; top: 80px; width: 480px; height: 320px; transform: rotate(90deg);
+  position: absolute; left: -227px; top: 227px; width: 844px; height: 390px; transform: rotate(90deg);
   color: var(--c-blue-99); font-family: var(--font-display); user-select: none;
 }
 .rh-touch { position: absolute; top: 0; bottom: 0; left: 0; width: 50%; touch-action: none; }
@@ -234,7 +191,7 @@ button.btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 .rh-actions > *:active { transform: scale(0.96); }
 @keyframes cardUp { from { opacity: 0; transform: translateY(18px) scale(0.96); } }
 
-.race-web { position: absolute; left: -80px; top: 80px; z-index: 40; width: 480px; height: 320px; transform: rotate(90deg); }
+.race-web { position: absolute; left: -227px; top: 227px; z-index: 40; width: 844px; height: 390px; transform: rotate(90deg); }
 .race-web .safari { inset: 0; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -404,7 +361,7 @@ button:disabled, [aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
 }
 .page .power-hint { min-height: 44px; }
 @media (prefers-reduced-motion: reduce) {
-  .home .app-icon { animation: fadeIn 200ms var(--ease-out) both; animation-delay: 0s; }
+  .home .app-icon, .home .widget { animation: fadeIn 200ms var(--ease-out) both; animation-delay: 0s; }
   .home .grid, .home .dock { transition: opacity 200ms var(--ease-out); }
   .js .home.behind .grid, .js .home.behind .dock { transform: none; }
   .app.closing { animation: fadeOut 150ms var(--ease-out) forwards; }

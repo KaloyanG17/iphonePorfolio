@@ -266,6 +266,7 @@ export default function Portfolio() {
       onUnlock={unlock}
       onOpen={open}
       onHome={closeApp}
+      onHomeButton={() => press('home')}
       onWeb={setWeb}
       onBanner={() => {
         setBanner(false);
@@ -298,7 +299,7 @@ export default function Portfolio() {
             <Phone3D racing={racing} screen={screen} muted={muted} pulse={pulse} finish={finish} focus={focus} onButton={press} onReady={() => setReady3d(true)} />
           </div>
         )}
-        {!ready3d && <Phone2D screen={screen} onHome={() => press('home')} />}
+        {!ready3d && <Phone2D screen={screen} />}
       </div>
 
       <header className="hud hud-tl">

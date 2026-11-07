@@ -25,6 +25,7 @@ type Props = {
   onUnlock: () => void;
   onOpen: Open;
   onHome: () => void;
+  onHomeButton: () => void; // the home bar: same as the old hardware home button
   onWeb: (url: string | null) => void;
   onBanner: () => void;
   setProject: (slug: string | null) => void;
@@ -55,7 +56,7 @@ export default function PhoneScreen(p: Props) {
         </div>
       ) : (
         <>
-          <StatusBar tone={p.locked ? 'black' : p.app && !p.closing ? 'gray' : 'clear'} />
+          <StatusBar tone={!p.locked && ((p.app && !p.closing) || p.web) ? 'dark' : 'light'} />
           {p.locked ? (
             <LockScreen onUnlock={p.onUnlock} />
           ) : (
@@ -80,6 +81,12 @@ export default function PhoneScreen(p: Props) {
                   <strong>Messages</strong>
                   <span>{profile.short}: Hi! Have a look around, or tap here to ask me something.</span>
                 </button>
+              )}
+              {/* The home bar: tap it to go home, like the hardware button on older phones */}
+              {(p.app || p.web) && !p.closing ? (
+                <button type="button" className="home-bar on-light" aria-label="Go to the home screen" onClick={p.onHomeButton} />
+              ) : (
+                <span className="home-bar idle" aria-hidden="true" />
               )}
             </>
           )}

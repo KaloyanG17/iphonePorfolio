@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
-const DESIGN_W = 400;
-const DESIGN_H = 770;
+const DESIGN_W = 438;
+const DESIGN_H = 892;
 
 // Flat CSS phone: shown while the 3D scene loads, and kept when WebGL is unavailable.
-export default function Phone2D({ screen, onHome }: { screen: ReactNode; onHome: () => void }) {
+export default function Phone2D({ screen }: { screen: ReactNode }) {
   const slot = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0);
 
@@ -24,10 +24,10 @@ export default function Phone2D({ screen, onHome }: { screen: ReactNode; onHome:
       <div className="phone-box" style={{ width: DESIGN_W * scale, height: DESIGN_H * scale, opacity: scale ? 1 : 0 }}>
         <div className="phone-design" style={{ transform: `scale(${scale})` }}>
           <div className="phone">
-            <span className="camera" aria-hidden="true" />
-            <span className="speaker" aria-hidden="true" />
-            <div className="screen">{screen}</div>
-            <button type="button" className="home-btn" aria-label="Home button" onClick={onHome}><span /></button>
+            <div className="screen">
+              {screen}
+              <span className="punch" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </div>

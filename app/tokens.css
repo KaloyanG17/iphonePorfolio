@@ -1,13 +1,12 @@
 /* Hallmark · checked: 2026-11-06 · genre: playful (inferred: a portfolio built as a game)
  * floor: 0 FAIL (from 461) · reflex: 0 open, 3 waived (2b, 38ii, 64) · fixed: 2a 7a 10a 19 34 40 44d 48 54 55a 62 63 67 30a 12 26b 29 F3 · finish-review: subagent · 5 findings · 4 resolved 1 partial
  * built: the project · redesign: polish · v2.0.0 */
-/* Hallmark · waive 2b · a neutral grey ramp sweeping across "slide to open" · the iOS 4 lock-screen shimmer is the period detail the phone rests on */
 /* Hallmark · waive 38ii · italic condensed display on the name and race heads · the race livery voice from the Grand Prix concept, set once per screen */
 /* Hallmark · waive 64 · timing-screen mono on lap, time, sector and garage labels · the race HUD is a timing screen, so its mono is the material */
 /* Hallmark · dismissed 3 · the coloured edge on the lap, time, speed and radio boxes is the timing-tower livery, one edge per box, not a card stripe */
 /* Hallmark · dismissed 18 · the marquee is aria-hidden backdrop type behind the phone with pointer-events off, and it stops under reduced motion */
 /* Hallmark · dismissed 40 · the render tier measured every text pair at 375, 1280, 1440 and 1920 with no failure; the drop is to a gradient stop that never sits behind the text */
-/* Hallmark · dismissed 49 · the long labels wrap on purpose inside the 320px phone screen and the race HUD, where nowrap would overflow the glass */
+/* Hallmark · dismissed 49 · the long labels wrap on purpose inside the 390px phone screen and the race HUD, where nowrap would overflow the glass */
 /* Hallmark · answered F7 · the pill sits on links and buttons (social links, pit wall, power hint) plus the race hint, which reads as a control legend */
 /* Hallmark · answered F20 · the pit wall lists all seven projects in order; the seventh is the old portfolio, and it sits alone on purpose as the archive */
 
@@ -29,6 +28,43 @@
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-spring-soft: cubic-bezier(0.2, 0.9, 0.25, 1.08);
   --ease-spring: cubic-bezier(0.2, 0.9, 0.25, 1.25);
+
+  /* kgOS 5, the phone's interface: light grouped surfaces, one system blue, glass over the wallpaper */
+  --os-bg: #f2f2f6;
+  --os-card: #fcfcfd;
+  --os-label: #121317;
+  --os-label-2: #676a73;
+  --os-label-3: #a3a6ad;
+  --os-sep: #dedee4;
+  --os-press: #e6e6ec;
+  --os-chip: #e7f0fd;
+  --os-chip-grey: #e8e8ed;
+  --os-bar: #f6f6f8;
+  --os-blue: #0a6fe0;
+  --os-blue-press: #085cbc;
+  --os-bubble-them: #e8e8ed;
+  --os-warn-bg: #fdf3d6;
+  --os-warn-fg: #6b4d00;
+  --os-li: #0a66c2;
+  --os-li-2: #3b8ad6;
+  --os-term-bg: #0d0f13;
+  --os-term-fg: #5ef08a;
+  --os-glass-light: rgba(252, 252, 253, 0.2);
+  --os-glass-line: rgba(252, 252, 253, 0.26);
+  --os-glass-dark: rgba(18, 20, 26, 0.72);
+  --os-widget: rgba(252, 252, 253, 0.16);
+  --os-dock: rgba(252, 252, 253, 0.18);
+  --os-shadow: rgba(7, 7, 10, 0.25);
+  --os-wall-glow-2: #1f56a6;
+  --os-race-1: #ef3b2f;
+  --os-race-2: #a50a12;
+  --os-flag-check: #16171b;
+  --os-punch: #050507;
+  --os-punch-lens: #1c2740;
+  --os-punch-ring: rgba(40, 42, 48, 0.9);
+  --os-frame-1: #4a4c53;
+  --os-frame-2: #26272c;
+  --os-frame-edge: #6a6c73;
 
   /* palette, named by hue and lightness (and alpha) */
   --c-signal-red: #e3141d;

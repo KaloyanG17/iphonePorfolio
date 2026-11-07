@@ -3,6 +3,7 @@ import { Barlow_Condensed, JetBrains_Mono } from 'next/font/google';
 import './tokens.css';
 import './globals.css';
 import './stage.css';
+import './os.css';
 
 export const metadata: Metadata = {
   title: 'Kaloyan Gaydarov | Full-stack web developer',
