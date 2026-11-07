@@ -6,3 +6,6 @@ next-env.d.ts
 # local env and Vercel
 .env*
 .vercel
+
+# Claude Code worktrees
+.claude/

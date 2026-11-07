@@ -413,4 +413,6 @@ button:disabled, [aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
   .hud.finishes button { transition: border-color 200ms var(--ease-out); }
   .hud.finishes button.on { transform: none; }
   .rh-flash { transition: opacity 200ms var(--ease-out); }
+  /* .safari is defined in this file, after globals.css, so its reduced-motion fade must live here too */
+  .safari { animation: fadeIn 200ms var(--ease-out); }
 }
