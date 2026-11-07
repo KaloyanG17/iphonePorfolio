@@ -145,7 +145,7 @@ export default function Portfolio() {
       setApp(null);
       setProject(null);
       setClosing(false);
-    }, 280);
+    }, 220);
   }
 
   function startRace() {
