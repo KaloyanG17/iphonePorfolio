@@ -1,6 +1,6 @@
 # KG Grand Prix — Kaloyan Gaydarov's portfolio
 
-**A portfolio you play.** A 3D phone you can spin, unlock and use, with a racing game inside it. You drive one lap of my career, then pull into the pit lane to try my projects.
+**A portfolio you play.** A 3D phone of my own design that you can spin, unlock and use, with a racing game inside it. You drive one lap of my career, then pull into the pit lane to try my projects.
 
 **Live:** https://iphoneporfolio.vercel.app &nbsp;·&nbsp; **Plain version:** https://iphoneporfolio.vercel.app/pit-wall
 
@@ -10,8 +10,8 @@
 
 ## What it does
 
-- **A phone built entirely in code.** The handset is modelled from extruded shapes and physical materials in Three.js, with no 3D model files. Drag it to spin it; it springs back with your swipe's speed carried through. Its buttons work: power, volume, the silent switch and home.
-- **A working home screen.** The screen is real HTML mapped onto the 3D glass. There are apps for About, Career, Projects, Messages, a Terminal with its own command parser, a live GitHub feed, a LinkedIn card, and an in-phone browser that opens my projects' live sites.
+- **A phone built entirely in code.** An original modern handset (flat satin frame, punch-hole camera, frosted back with a pill-shaped camera block) modelled from extruded shapes and physical materials in Three.js, with no 3D model files. Drag it to spin it; it springs back with your swipe's speed carried through. Its side buttons work: power, volume and the silent switch.
+- **kgOS 5, its own interface.** The screen is real HTML mapped onto the 3D glass: swipe up to unlock, a home screen with profile and Grand Prix widgets, and a home bar to go back. There are apps for About, Career, Projects, Messages, a Terminal with its own command parser, a live GitHub feed, a LinkedIn card, and an in-phone browser that opens my projects' live sites.
 - **The Grand Prix.** Press it and the phone turns on its side into a handheld console. A 3D race runs on the phone's screen:
   - start lights, a lap timer, and a best lap saved in your browser
   - an AI rival that brakes for each corner from a computed speed profile
